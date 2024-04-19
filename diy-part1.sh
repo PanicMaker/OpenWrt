@@ -18,7 +18,7 @@
 # echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
 sed -i 's#src-git packages https://github.com/immortalwrt/packages.git;openwrt-23.05#src-git packages https://github.com/immortalwrt/packages.git#' feeds.conf.default
-sed -i 's#src-git luci https://github.com/immortalwrt/luci.git;openwrt-23.05#src-git packages https://github.com/immortalwrt/luci.git#' feeds.conf.default
+sed -i 's#src-git luci https://github.com/immortalwrt/luci.git;openwrt-23.05#src-git luci https://github.com/immortalwrt/luci.git#' feeds.conf.default
 
 
 sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
