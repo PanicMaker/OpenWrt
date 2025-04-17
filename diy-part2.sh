@@ -49,6 +49,7 @@ git clone --depth=1 https://github.com/kenzok8/openwrt-packages package/kenzo
 
 # 更换golong
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+sed -i 's/GO_VERSION_PATCH:=1/GO_VERSION_PATCH:=2/' feeds/packages/lang/golang/golang/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
