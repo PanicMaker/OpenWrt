@@ -31,7 +31,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Check Server Performance
@@ -54,15 +54,15 @@ jobs:
 
     - name: Mkdir Workdir  
       run: |
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
+        sudo mkdir -p /mnt/workdir
+        sudo chown $USER:$GROUPS /mnt/workdir
 
     - name: Clone source code
-      working-directory: /workdir
+      working-directory: /mnt/workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Initialization environment
       env:
@@ -109,7 +109,7 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
 
     - name: Cache downloaded files
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: openwrt/dl
         key: ${{ runner.os }}-openwrt-dl-${{ hashFiles('**/feeds.conf.default') }}
