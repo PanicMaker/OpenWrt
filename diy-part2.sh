@@ -37,7 +37,7 @@ function git_sparse_clone() {
 # 移除冲突文件
 rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing-box*,smartdns,brook*,chinadns-ng,*dns2socks*,dns2tcp*shadowsocks-libev,*shadowsocks-rust,*simple-obfs,*tcping,*trojan-go.*trojan,*trojan-plus,*tuic-client,*hysteria}
 rm -rf feeds/packages/utils/v2dat
-rm -rf feeds/packages/lang/golang
+# rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/applications/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-argon
@@ -46,4 +46,4 @@ rm -rf feeds/luci/applications/luci-app-passwall
 
 
 # 更换golong
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+# git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
