@@ -20,8 +20,9 @@ sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_gener
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 # Wan口LAN口互换
-# sed -i 's/ucidef_set_interface_lan '\''eth0''/ucidef_set_interface_lan '\''eth1''/g' package/base-files/files/etc/board.d/99-default_network
-# sed -i 's/ucidef_set_interface_wan '\''eth1''/ucidef_set_interface_wan '\''eth0''/g' package/base-files/files/etc/board.d/99-default_network
+sed -i "s/ucidef_set_interface_lan 'eth0'/ucidef_set_interface_lan 'eth1'/g" package/base-files/files/etc/board.d/99-default_network
+sed -i "s/ucidef_set_interface_wan 'eth1'/ucidef_set_interface_wan 'eth0'/g" package/base-files/files/etc/board.d/99-default_network
+cat package/base-files/files/etc/board.d/99-default_network | grep -E 'ucidef_set_interface_(lan|wan)'
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
