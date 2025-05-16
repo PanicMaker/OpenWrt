@@ -47,6 +47,3 @@ rm -rf feeds/luci/applications/luci-app-passwall
 
 # 更换golong
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-sed -i 's/GO_VERSION_PATCH:=1/GO_VERSION_PATCH:=2/' feeds/packages/lang/golang/golang/Makefile
-sed -i 's/PKG_HASH:=8244ebf46c65607db10222b5806aeb31c1fcf8979c1b6b12f60c677e9a3c0656/PKG_HASH:=9dc77ffadc16d837a1bf32d99c624cb4df0647cee7b119edd9e7b1bcc05f2e00/' feeds/packages/lang/golang/golang/Makefile
-
