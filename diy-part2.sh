@@ -33,12 +33,6 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
-# 加入第三方源
-sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-
-./scripts/feeds update -a
-
 # 移除冲突文件
 rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing-box*,smartdns,brook*,chinadns-ng,*dns2socks*,dns2tcp*shadowsocks-libev,*shadowsocks-rust,*simple-obfs,*tcping,*trojan-go.*trojan,*trojan-plus,*tuic-client,*hysteria}
 rm -rf feeds/packages/utils/v2dat
@@ -55,5 +49,3 @@ git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 sed -i 's/GO_VERSION_PATCH:=1/GO_VERSION_PATCH:=2/' feeds/packages/lang/golang/golang/Makefile
 sed -i 's/PKG_HASH:=8244ebf46c65607db10222b5806aeb31c1fcf8979c1b6b12f60c677e9a3c0656/PKG_HASH:=9dc77ffadc16d837a1bf32d99c624cb4df0647cee7b119edd9e7b1bcc05f2e00/' feeds/packages/lang/golang/golang/Makefile
 
-
-./scripts/feeds install -a
